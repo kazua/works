@@ -1,0 +1,43 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>素数の時だけJOJO!（エラトステネスの篩版）</title>
+<script type="text/javascript" src="e:\works\prototype.js"></script>
+<script type="text/javascript">
+function createprimearray(x){
+	var primearray = new Array();//素数配列
+	var searcharray = new Array();//検索配列
+	for(var i = 0; i <= x; i++){//配列インデックスと数値を合わせる為0から検索配列に設定する
+		searcharray.push(i);
+	}
+	delete searcharray[0];//0は素数ではない
+	delete searcharray[1];//1は素数ではない
+	for(var i = 2; i <= x; i++){//2から最大値までの間処理を実行
+		if(searcharray[i] != undefined){//配列の取得値が削除されていない（undefinedでない）場合処理を実行
+			primearray.push(searcharray[i]);//素数配列に検索配列の取得値を追加
+			var pk = searcharray[i];
+			for(var j = 1; j*pk <= x; j++){//最大値までのすべての検索配列取得値の倍数を検索配列から削除
+				delete searcharray[j*pk];
+			}
+			x = Math.max.apply(null,searcharray.compact());//削除後に最大値が変化する可能性があるので、検索配列の最大値を再取得
+		}
+		if(Math.pow(primearray[primearray.length -1],2) > x){//最大値が素数配列の最大値の平方より小さい場合
+			primearray = primearray.concat(searcharray.compact());//素数配列と検索配列に残っている値すべてを素数配列として返却する
+			return primearray;
+		}
+	}
+}
+var primeary = createprimearray(100);
+var pcnt = 0;//素数配列インデックス用
+for(var i = 1; i <= 100; i++){
+	if(i == primeary[pcnt]){//素数配列の取得値と合致している場合
+		document.write("JOJO!<br>");
+		pcnt++;//インデックスをインクリメント
+	}else{
+		document.write(i+"<br>");
+	}
+}
+</script>
+</head>
+</html>

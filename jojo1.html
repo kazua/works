@@ -1,0 +1,25 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>素数の時だけJOJO!</title>
+<script type="text/javascript">
+for(var i = 1; i <= 100; i++){
+	var c = 0;//カウンタを初期化
+	var p = 1;//素数フラグを立てる
+	for(var j = 1; j <= i; j++){
+		if(i % j == 0) c++;//割りきれればカウントアップ
+		if(c == 2 && j != i){//自分と同値になる前に二度割りきれれば素数ではない
+			p = 0;//素数フラグをおろす
+			break;
+		}
+	}
+	if(i != 1 && p == 1){//１以外で素数フラグが立っていれば素数
+		document.write("JOJO!<br>");
+	}else{
+		document.write(i+"<br>");
+	}
+}
+</script>
+</head>
+</html>
