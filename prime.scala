@@ -11,15 +11,18 @@ object prime {
         }
 
     def jojo(pl: List[Int],sl: List[Int]){
+        var pls = pl
         for(i <- sl)
-            if(pl.exists(_ == i))
+            if(pls.exists(_ == i)){
+                pls = pls.filter{ _ != i }
                 println("jojo!")
-            else
+            }else{
                 println(i)
+            }
     }
 
     def main(args: Array[String]) {
-        var i = 100
-        jojo(prime(Range(2, i).toList),Range(1, i).toList)
+        var i = 100000
+        jojo(prime(Range(2, i+1).toList),Range(1, i+1).toList)
     }
 }
