@@ -6,8 +6,7 @@ object prime {
             plist
         }else{
             plist = sl.head :: plist
-            sl.head :: prime(sl.tail.filter(_ % sl.head != 0))
-            plist
+            prime(sl.tail.filter(_ % sl.head != 0))
         }
 
     def jojo(pl: List[Int],sl: List[Int]){
@@ -22,7 +21,7 @@ object prime {
     }
 
     def main(args: Array[String]) {
-        var i = 100000
+        var i = 100
         jojo(prime(Range(2, i+1).toList),Range(1, i+1).toList)
     }
 }
