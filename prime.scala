@@ -14,7 +14,7 @@ object prime {
         for(i <- sl){
             if(!pls.isEmpty) plst = pls.head
             if(plst == i){
-                pls = pls.filter{ _ != i }
+                pls = pls.tail
                 println("jojo!")
             }else{
                 println(i)
