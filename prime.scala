@@ -23,7 +23,7 @@ object prime {
     }
 
     def main(args: Array[String]) {
-        var i = 500000
+        var i = 100//ここまでの数字内で処理
         jojo(prime(Range(2, i + 1).toList),Range(1, i + 1).toList)
     }
 }
