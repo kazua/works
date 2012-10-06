@@ -12,7 +12,7 @@ object prime {
         var pls = pl
         var plst = 0
         for(i <- sl){
-            if(!pls.isEmpty) plst = pls.head
+            if(!pls.isEmpty && plst != pls.head) plst = pls.head
             if(plst == i){
                 pls = pls.tail
                 println("jojo!")
@@ -23,7 +23,7 @@ object prime {
     }
 
     def main(args: Array[String]) {
-        var i = 100
+        var i = 500000
         jojo(prime(Range(2, i + 1).toList),Range(1, i + 1).toList)
     }
 }
