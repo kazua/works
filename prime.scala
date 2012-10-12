@@ -1,9 +1,8 @@
 object prime {
     var plist = List.empty[Int]
     def prime(sl: List[Int]): List[Int] =
-        if (sl.head != 2 && (sl.isEmpty || Math.pow(plist.head,2) > sl.last)){
-            plist.reverse ::: sl
-        }else{
+        if (sl.head != 2 && (sl.isEmpty || Math.pow(plist.head,2) > sl.last)) plist.reverse ::: sl
+        else{
             plist = sl.head :: plist
             prime(sl.tail.filter(_ % sl.head != 0))
         }
@@ -16,9 +15,7 @@ object prime {
             if(plst == i){
                 pls = pls.tail
                 println("jojo!")
-            }else{
-                println(i)
-            }
+            }else println(i)
         }
     }
 
