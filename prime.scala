@@ -1,7 +1,9 @@
+import scala.math._
+
 object prime {
     var plist = List.empty[Int]
     def prime(sl: List[Int]): List[Int] =
-        if (sl.head != 2 && (sl.isEmpty || Math.pow(plist.head,2) > sl.last)) plist.reverse ::: sl
+        if (sl.head != 2 && (sl.isEmpty || pow(plist.head,2) > sl.last)) plist.reverse ::: sl
         else{
             plist = sl.head :: plist
             prime(sl.tail.filter(_ % sl.head != 0))
@@ -20,7 +22,7 @@ object prime {
     }
 
     def main(args: Array[String]) {
-        var i = 100//ここまでの数字内で処理
+        var i = 500000//ここまでの数字内で処理
         jojo(prime(Range(2, i + 1).toList),Range(1, i + 1).toList)
     }
 }
