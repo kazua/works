@@ -22,7 +22,7 @@ object healthparameter {
     }
 
     def main(args : Array[String]) {
-        val name : String = args(0)
+        lazy val name = if (args.size == 0 || args(0) == "") "guest" else args(0)
         lazy val years = try { args(1).toInt } catch { case ex : java.lang.NumberFormatException => { println("年齢指定が間違っています。指定年齢：" + args(1)); return ; } }
         lazy val sex = if (args(2).equalsIgnoreCase("f") ||
                            args(2).equalsIgnoreCase("m") ||
