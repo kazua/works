@@ -28,7 +28,7 @@ object healthparameter {
                            args(2).equalsIgnoreCase("m") ||
                            args(2).equalsIgnoreCase("female") ||
                            args(2).equalsIgnoreCase("male")) args(2).slice(0, 1)
-        else { println("性別指定が間違っています。指定性別：" + args(2)); return ; }
+                       else { println("性別指定が間違っています。指定性別：" + args(2)); return ; }
         lazy val height = try { if (args(3).toDouble > 3.0) args(3).toDouble else args(3).toDouble * 100 } catch { case ex : java.lang.NumberFormatException => { println("身長指定が間違っています。指定身長：" + args(3)); return ; } }
         lazy val weight = try { args(4).toDouble } catch { case ex : java.lang.NumberFormatException => { println("体重指定が間違っています。指定体重:" + args(4)); return ; } }
 
