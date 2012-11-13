@@ -4,8 +4,9 @@ object writtenOracle {
 
     def destiny(d : Double)(r : Double) : Int = floor(d * r).toInt
 
+    val destinyp = destiny(12)_
+
     def writtenOracle(name : String) : String = {
-        val destinyp = destiny(12)_
         val destinypoint = destinyp(random)
         destinypoint match {
             case 1 => name + "の運勢は大凶です。"
