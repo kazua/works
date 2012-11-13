@@ -2,7 +2,7 @@ import scala.math._
 
 object writtenOracle {
 
-    def destiny(d : Double)(r : Double) : Int = floor((d - 1) * r).toInt
+    def destiny(d : Double)(r : Double) : Int = floor(d * r).toInt
 
     val destinyp = destiny(12)_
 
@@ -21,7 +21,6 @@ object writtenOracle {
             case 2 => name + "の運勢は小吉です。"
             case 1 => name + "の運勢は中吉です。"
             case 0 => name + "の運勢は大吉です。"
-            case x => name + "の運勢は判断できません・・・"
         }
     }
 
