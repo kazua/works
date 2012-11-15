@@ -11,17 +11,15 @@ object problem22 {
                 case d if d.isDirectory() => println("%s:%s".format(path, "指定パスはディレクトリです"))
                 case f if f.isFile() && f.canRead() && f.getName() == "names.txt" => {
                     try {
-                        var lineCnt = 0
                         var score = 0
-                        Source.fromFile(f.getPath).getLines.toList.mkString.replace("\"", "").split(",").toList.sortWith(_.compareToIgnoreCase(_) < 0).foreach {
-                            s =>
+                        Source.fromFile(f.getPath).getLines.toList.mkString.replace("\"", "").split(",").toList.sortWith(_.compareToIgnoreCase(_) < 0).zipWithIndex.foreach {
+                            ite =>
                                 {
                                     var alpidx = 0
-                                    s.foreach {
+                                    ite._1.foreach {
                                         c => alpidx += (('a' to 'z').mkString.indexOf(c.toLower) + 1)
                                     }
-                                    lineCnt += 1
-                                    score += (lineCnt * alpidx)
+                                    score += ((ite._2 + 1) * alpidx)
                                 }
                         }
                         println(score)
