@@ -5,24 +5,23 @@ import java.io._
 import scala.io.Source
 
 object problem22 {
+    def sum(s : String) : Int = s match {
+        case null => 0
+        case "" => 0
+        case s => (('a' to 'z').mkString.indexOf(s.charAt(0).toLower) + 1) + sum(s.substring(1))
+    }
+    def score(ls : List[(String, Int)]) : Int = ls match {
+        case x::xs => ((x._2 + 1) * sum(x._1)) + score(xs)
+        case nil => 0
+    }
     def problem22(path : String) {
         try {
             new File(path) match {
                 case d if d.isDirectory() => println("%s:%s".format(path, "指定パスはディレクトリです"))
                 case f if f.isFile() && f.canRead() && f.getName() == "names.txt" => {
                     try {
-                        var score = 0
-                        Source.fromFile(f.getPath).getLines.toList.mkString.replace("\"", "").split(",").toList.sortWith(_.compareToIgnoreCase(_) < 0).zipWithIndex.foreach {
-                            ite =>
-                                {
-                                    var alpidx = 0
-                                    ite._1.foreach {
-                                        c => alpidx += (('a' to 'z').mkString.indexOf(c.toLower) + 1)
-                                    }
-                                    score += ((ite._2 + 1) * alpidx)
-                                }
-                        }
-                        println(score)
+                        val scp = score(Source.fromFile(f.getPath).getLines.toList.mkString.replace("\"", "").split(",").toList.sortWith(_.compareToIgnoreCase(_) < 0).zipWithIndex)
+                        println(scp)
                     } catch {
                         case ex : java.nio.charset.MalformedInputException => println("%s:%s".format(f.getPath(), "検索対象外ファイルです"))
                     }
