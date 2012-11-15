@@ -13,7 +13,7 @@ object problem22 {
                     try {
                         var lineCnt = 0
                         var score = 0
-                        Source.fromFile(f.getPath).getLines.toList.mkString.split(",").toList.sortWith(_.compareToIgnoreCase(_) < 0).foreach {
+                        Source.fromFile(f.getPath).getLines.toList.mkString.replace("\"", "").split(",").toList.sortWith(_.compareToIgnoreCase(_) < 0).foreach {
                             s =>
                                 {
                                     var alpidx = 0
