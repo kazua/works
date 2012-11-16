@@ -11,8 +11,8 @@ object problem22 {
         case s => (('a' to 'z').mkString.indexOf(s.charAt(0).toLower) + 1) + sum(s.substring(1))
     }
     def score(ls : List[(String, Int)]) : Int = ls match {
+        case Nil => 0
         case x::xs => ((x._2 + 1) * sum(x._1)) + score(xs)
-        case nil => 0
     }
     def problem22(path : String) {
         try {
