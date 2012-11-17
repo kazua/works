@@ -15,8 +15,7 @@ object problem07 {
     }
 
     def main(args : Array[String]) {
-        val i = 200000
         val cnt = 10001
-        println(prime(Range(2, i + 1).toList, 2)(cnt - 1))
+        println(prime(Range(2, cnt * 12).toList, 2)(cnt - 1))
     }
 }
