@@ -9,9 +9,18 @@ object problem21 {
             (if (Range(1, divisora + 1).toList.filter(divisora % _ == 0).sum - divisora == y && divisora != y) 1 else 0) + calcAmicable(ys)
         }
     }
+    def callCalc(xs : List[Int]) : Int = xs match {
+        case Nil => 0
+        case xs => {
+            if (xs.size <= 5000){
+                calcAmicable(xs)
+            }else{
+                calcAmicable(xs.take(5000)) + callCalc(xs.drop(5000))
+            }
+        }
+    }
     def problem21(is : Int) : Int = {
-        val splLst = Range(1,is).toList.splitAt(is / 2)
-        calcAmicable(splLst._1) + calcAmicable(splLst._2)
+        callCalc(Range(1,is).toList)
     }
     def main(args : Array[String]) {
         val problem21k = problem21 _
