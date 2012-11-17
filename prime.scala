@@ -6,22 +6,18 @@ object prime {
         case sl => {
             if (sl.head != 2 && (sl.isEmpty || pow(ms, 2) > sl.last)) sl
             else {
-                println(sl.head)
-                println(sl.tail.filter(_ % sl.head != 0))
                 sl.head :: prime(sl.tail.filter(_ % sl.head != 0), sl.head)
             }
         }
     }
 
     def jojo(pl : List[Int], sl : List[Int]) {
-        var pls = pl
-        var plst = 0
-        for (i <- sl) {
-            if (!pls.isEmpty && plst != pls.head) plst = pls.head
-            if (plst == i) {
-                pls = pls.tail
-                println("jojo!")
-            } else println(i)
+        if (pl != Nil && pl.head == sl.head) {
+            println("jojo!")
+            jojo(pl.tail, sl.tail)
+        } else if (sl != Nil) {
+            println(sl.head)
+            jojo(pl, sl.tail)
         }
     }
 
