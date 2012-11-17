@@ -1,13 +1,17 @@
 import scala.math._
 
 object prime {
-    var plist = List.empty[Int]
-    def prime(sl: List[Int]): List[Int] =
-        if (sl.head != 2 && (sl.isEmpty || pow(plist.head,2) > sl.last)) plist.reverse ::: sl
-        else{
-            plist = sl.head :: plist
-            prime(sl.tail.filter(_ % sl.head != 0))
+    def prime(sl : List[Int], ms : Int) : List[Int] = sl match {
+        case Nil => Nil
+        case sl => {
+        if (sl.head != 2 && (sl.isEmpty || pow(ms, 2) > sl.last)) sl
+        else {
+            println(sl.head)
+            println(sl.tail.filter(_ % sl.head != 0))
+            sl.head :: prime(sl.tail.filter(_ % sl.head != 0),sl.head)
         }
+        }
+    }
 
     def jojo(pl: List[Int],sl: List[Int]){
         var pls = pl
@@ -23,6 +27,6 @@ object prime {
 
     def main(args: Array[String]) {
         val i = 100//ここまでの数字内で処理
-        jojo(prime(Range(2, i + 1).toList),Range(1, i + 1).toList)
+        jojo(prime(Range(2, i + 1).toList,2),Range(1, i + 1).toList)
     }
 }
