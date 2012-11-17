@@ -4,18 +4,9 @@
 import scala.math._
 
 object problem07 {
-    def prime(sl : List[Int], ms : Int) : List[Int] = sl match {
-        case Nil => Nil
-        case sl => {
-            if (sl.head != 2 && (sl.isEmpty || pow(ms, 2) > sl.last)) sl
-            else {
-                sl.head :: prime(sl.tail.filter(_ % sl.head != 0), sl.head)
-            }
-        }
-    }
-
     def main(args : Array[String]) {
         val cnt = 10001
-        println(prime(Range(2, cnt * 12).toList, 2)(cnt - 1))
+        val pr = 2 #:: Stream.from(3)
+        println(pr.filter(i=> pr.takeWhile(j=> pow(j, 2) <= i).forall(i % _ > 0))(cnt - 1))
     }
 }
