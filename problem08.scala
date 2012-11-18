@@ -2,7 +2,14 @@
 //K.A
 
 object problem08 {
-
+    def calcSliceProduct(nums : String) : Int ={
+        if (!nums.forall(_.isDigit)){
+            println("数字でない文字がまじっています。")
+            0
+        }else{
+            nums.map(_.asDigit).sliding(5).map(_.product).max
+        }
+    }
     def main(args : Array[String]) {
         val nums = "7316717653133062491922511967442657" +
         		"47423553491949349698352031277450632" +
@@ -33,7 +40,7 @@ object problem08 {
         		"67109405077541002256983155200055935" +
         		"72972571636269561882670428252483600" +
         		"823257530420752963450"
-
-        println(nums.map(_.asDigit).sliding(5).map(_.product).max)
+        val calcSliceProductk = calcSliceProduct _
+        println(calcSliceProductk(nums))
     }
 }
