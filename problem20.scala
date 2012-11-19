@@ -2,12 +2,12 @@
 //K.A
 
 object problem20 {
-    def sum(xs : List[String]) : Int = xs match {
-        case Nil => 0
-        case y :: ys => y.toInt + sum(ys)
+    def sum(acl : Int, xs : List[String]) : Int = xs match {
+        case Nil => acl
+        case y :: ys => sum(acl + y.toInt, ys)
     }
     def problem20(is : Int) : Int ={
-        sum((BigInt(1) to is).reverse.product.toString.split("").filter(_ != "").toList)
+        sum(0,(BigInt(1) to is).reverse.product.toString.split("").filter(_ != "").toList)
     }
     def main(args : Array[String]) {
         val ploblem20k = problem20 _
