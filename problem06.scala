@@ -4,12 +4,12 @@
 import scala.math._
 
 object problem06 {
-    def sum(xs : List[Int]) : Long = xs match {
-        case Nil => 0
-        case y :: ys => pow(y,2).toLong + sum(ys)
+    def sum(acl : Long, xs : List[Int]) : Long = xs match {
+        case Nil => acl
+        case y :: ys => sum(acl + pow(y,2).toLong, ys)
     }
     def problem06(is : Int) : Long = {
-        pow((1 to is).toList.sum, 2).toLong - sum((1 to is).toList)
+        pow((1 to is).toList.sum, 2).toLong - sum(0, (1 to is).toList)
     }
     def main(args : Array[String]) {
         val ploblem06k = problem06 _
