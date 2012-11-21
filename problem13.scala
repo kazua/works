@@ -6,7 +6,7 @@ object problem13 {
         if (!nums.forall(_.isDigit)) {
             "数字でない文字がまじっています。"
         } else {
-            nums.sliding(50,50).map(_.take(11).toLong).sum.toString().take(10)
+            nums.sliding(50,50).map(_.take(11).toLong).sum.toString.take(10)
         }
     }
     def main(args : Array[String]) {
