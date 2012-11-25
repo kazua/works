@@ -4,7 +4,7 @@
 object problem19 {
     def getSunCnt : Int = {
         val dayCnt = List(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
-        def mlf(st : Int, ed : Int) = for(y <- st to ed; m <- 1 to 12) yield if(m == 2) if (if ((y % 100 == 0 && y % 400 != 0) || (y % 4 != 0)) false else true) 29 else 28 else dayCnt(m - 1)
+        def mlf(st : Int, ed : Int) = for(y <- st to ed; m <- 1 to 12) yield if (if (m != 2 || (m == 2 && ((y % 100 == 0 && y % 400 != 0) || (y % 4 != 0)))) false else true) 29 else dayCnt(m - 1)
 
         val ml1900 = mlf(1900,1900)
         val ml = mlf(1901,2000)
