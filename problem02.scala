@@ -3,7 +3,7 @@
 
 object problem02 {
     def fbnEvnSum(mn : Int) : BigInt = {
-        lazy val fbn: Stream[Int] = 0 #:: 1 #:: fbn.zip(fbn.tail).map(i => i._1 + i._2).takeWhile(_ <= mn)
+        lazy val fbn: Stream[Int] = 0 #:: fbn.scanLeft(1){(a, b) => a + b }.takeWhile(_ <= mn)
         fbn.filter(_ % 2 == 0).sum
     }
     def main(args : Array[String]) {
