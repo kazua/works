@@ -4,7 +4,7 @@ object seitou {
         def partyName : String = "政党名"
         def createManifest : String = "マニフェスト"
         def hasOzawa : Boolean = false
-        def badwords : List[String] = "卒原発" :: "脱原発" :: "子ども手当" :: "沖縄基地県外移設" :: Nil
+        final def badwords : List[String] = "卒原発" :: "脱原発" :: "子ども手当" :: "沖縄基地県外移設" :: "法人税増税" :: Nil
         def isBadParty : Boolean = if (hasOzawa || badwords.filter(s => createManifest.contains(s)).length >= 2) true else false
         def matome = partyName + "は" + (if (isBadParty) "悪い" else "悪くない") + "政党です。"
     }
