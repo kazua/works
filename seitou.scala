@@ -15,10 +15,15 @@ object seitou {
         override def hasOzawa = false
     }
 
-    class nmt extends party {
+    class ksd extends party {
+        override def partyName  = "国民の生活が第一"
+        override def createManifest = "卒原発・消費税増税反対"
+        override def hasOzawa = true
+    }
+
+    class nmt extends ksd with party {
         override def partyName  = "日本未来の党"
         override def createManifest = "卒原発・子ども手当"
-        override def hasOzawa = true
     }
 
     def main(args : Array[String]) {
@@ -27,4 +32,5 @@ object seitou {
         println(ldp.matome)
         println(nmt.matome)
     }
+
 }
