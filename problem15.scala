@@ -3,7 +3,7 @@
 
 object problem15 {
     def getRootCnt(n: Int, k: Int): BigInt = {
-        (BigInt(1) to n).product/((BigInt(1) to k).product * (BigInt(1) to k).product)
+        (BigInt(1) to n).product/(BigInt(1) to k).product.pow(2)
     }
     def main(args : Array[String]) {
         val mCnt = 20
