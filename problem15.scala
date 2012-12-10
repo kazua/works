@@ -2,12 +2,11 @@
 //K.A
 
 object problem15 {
-    def getRootCnt(row: List[Long], clm: Int): Long = {
-        val cntLst = row.map(i => row.filter(_ <= i).sum)
-        if (clm == 0) cntLst.last else getRootCnt(cntLst, clm - 1)
+    def getRootCnt(n: Int, k: Int): BigInt = {
+        (BigInt(1) to n).product/((BigInt(1) to k).product * (BigInt(1) to k).product)
     }
     def main(args : Array[String]) {
-        val rowCnt = 20
-        println(getRootCnt((1L to rowCnt + 1).toList, rowCnt - 2))
+        val mCnt = 20
+        println(getRootCnt(mCnt*2, mCnt))
     }
 }
