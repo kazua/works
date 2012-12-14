@@ -3,7 +3,7 @@
 
 object problem29 {
     def getDtntSize(min: Int, max: Int): Int = {
-        (min to max).map(i => (BigInt(min) to max).map(j=> j.pow(i))).toList.reduceLeft(_ ++ _).distinct.size
+        (min to max).map(i => (BigInt(min) to max).map(j=> j.pow(i))).reduceLeft(_ ++ _).distinct.size
     }
     def main(args : Array[String]) {
         val min = 2
