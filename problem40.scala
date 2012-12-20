@@ -3,7 +3,7 @@
 
 object problem40 {
     def getIrtlNum(cnt : Int): Int = {
-        val irtNum = (1 to 200000).mkString.toArray.map(_.toString.toInt)
+        val irtNum = Stream.from(1).takeWhile(_ <= cnt+1).mkString.toArray.map(_.toString.toInt)
         irtNum(cnt).toInt
     }
     def getIrtlNumMlp(max : Int,acl : Int): Int = max match {
