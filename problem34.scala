@@ -7,7 +7,7 @@ object problem34 {
         case a => getLimited(dc + 1)
     }
     def getFactSumEq() : Int = {
-        (0 to getLimited(1)).map(_.toString.toList).map(_.map(c => (1 to c.toString.toInt).product).sum).zipWithIndex.filter(t => t._1 == t._2).map(_._1).sum - 3
+        (0 to getLimited(1)).map(_.toString.toList).map(_.map(c => (1 to c.asDigit).product).sum).zipWithIndex.filter(t => t._1 == t._2).map(_._1).sum - 3
     }
     def main(args : Array[String]) {
         println(getFactSumEq)
