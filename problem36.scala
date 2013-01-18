@@ -2,7 +2,7 @@
 //K.A
 
 object problem36 {
-    def problem36 = (1 to 1000000).filter(i => i.toString == i.toString.reverse && i.toBinaryString == i.toBinaryString.reverse).sum
+    def problem36 = (1 until 1000000).filter(i => i.toString == i.toString.reverse && i.toBinaryString == i.toBinaryString.reverse).sum
     def main(args : Array[String]) {
         println(problem36)
     }
