@@ -1,14 +1,14 @@
 import java.sql._
 import java.io._
 import scala.Array
-
+ 
 object kakeiboMonthBackup {
     def using[A <: { def close() : Unit }, B](closable : A)(f : A => B) : B = try { f(closable) } finally { closable.close() }
     def main(args : Array[String]) : Unit = {
         try {
             val year = args(0)
             val month = args(1)
-
+ 
             Class.forName("com.mysql.jdbc.Driver").newInstance;
             val con = DriverManager.getConnection("jdbc:mysql://192.168.*.*/***?user=***&password=***");
             try {
@@ -22,7 +22,7 @@ object kakeiboMonthBackup {
                 using(new PrintWriter(bwt)) { out =>
                     while (rs.next) {
                         for (i <- 1 until colcnt) out.print("|" + rs.getString(i) + "|,")
-                        out.println(rs.getString(colcnt))
+                        out.println("|" + rs.getString(colcnt) + "|")
                     }
                 }
                 stmt.close()
@@ -32,7 +32,7 @@ object kakeiboMonthBackup {
         } catch {
             case e : ClassNotFoundException => println("使用できない定義があります" + e)
             case e : SQLException => println("DB処理でエラーが発生しました" + e)
-            case e => e.printStackTrace()
+            case e => e.printStackTrace
         }
     }
 }
