@@ -4,7 +4,7 @@ import scala.Array
  
 object kakeiboMonthBackup {
     def using[A <: { def close() : Unit }, B](closable : A)(f : A => B) : B = try { f(closable) } finally { closable.close() }
-    def main(args : Array[String]) : Unit = {
+    def main(args : Array[String]) {
         try {
             val year = args(0)
             val month = args(1)
