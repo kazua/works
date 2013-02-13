@@ -9,8 +9,8 @@ object kakeiboMonthBackup {
             val year = args(0)
             val month = args(1)
  
-            Class.forName("com.mysql.jdbc.Driver").newInstance;
-            val con = DriverManager.getConnection("jdbc:mysql://192.168.*.*/***?user=***&password=***");
+            Class.forName("com.mysql.jdbc.Driver").newInstance
+            val con = DriverManager.getConnection("jdbc:mysql://192.168.*.*/***?user=***&password=***")
             try {
                 val stmt = con.createStatement
                 val rs = stmt.executeQuery("SELECT * FROM T_ACT where year = '" + year + "' and month = '" + month + "' order by year + month + day")
