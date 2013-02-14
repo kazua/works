@@ -7,7 +7,6 @@ import com.itextpdf.text.pdf.fonts._
 import com.itextpdf.text.pdf.BaseFont._
 
 object kakeiboPDFPrint {
-    def using[A <: { def close : Unit }, B](closable : A)(f : A => B) : B = try { f(closable) } finally { closable.close }
     def main(args : Array[String]) {
         try {
             val stday = args(0)
