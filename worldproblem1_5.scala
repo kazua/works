@@ -6,9 +6,9 @@ object worldproblem1_5 {
         case t => acl match {
             case a if a.length > 0 && a.length >= bktgt.length => bktgt
             case a => zip match {
-                case z if z == "" => ZipStr(t.tail.mkString, z + t.head, a, t.mkString)
-                case z if z.head == t.head => ZipStr(t.tail.mkString, z + t.head, a, bktgt)
-                case z => ZipStr(t.tail.mkString, t.head.toString, a + z.head + z.length, bktgt)
+                case z if z == "" => ZipStr(t.tail, z + t.head, a, t)
+                case z if z.head == t.head => ZipStr(t.tail, z + t.head, a, bktgt)
+                case z => ZipStr(t.tail, t.head.toString, a + z.head + z.length, bktgt)
             }
         }
     }
