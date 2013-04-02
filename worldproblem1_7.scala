@@ -18,13 +18,7 @@ object worldproblem1_7 {
                 }
             }
         }
-        for (i <- 0 until tgt.size) {
-            for (j <- 0 until tgt(i).size) {
-                if (rowbol(i) * colbol(j) == 0) {
-                    tgt(i)(j) = 0
-                }
-            }
-        }
+        for (i <- 0 until tgt.size) for (j <- 0 until tgt(i).size) if (rowbol(i) * colbol(j) == 0) tgt(i)(j) = 0
         tgt
     }
     def main(args : Array[String]) {
