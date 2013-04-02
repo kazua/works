@@ -9,16 +9,16 @@ object worldproblem1_7 {
 
         for (i <- 0 until tgt.size) {
             rowbol(i) = 1
-            for (j <- 0 until tgt(i).size) {
+            for (j <- 0 until tgt(i).size)
                 if (tgt(i)(j) == 0) {
                     rowbol(i) = 0
                     colbol(j) = 0
-                } else if (!colbol.contains(j)) {
-                    colbol(j) = 1
-                }
-            }
+                } else if (!colbol.contains(j)) colbol(j) = 1
         }
-        for (i <- 0 until tgt.size) for (j <- 0 until tgt(i).size) if (rowbol(i) * colbol(j) == 0) tgt(i)(j) = 0
+        for (i <- 0 until tgt.size)
+            for (j <- 0 until tgt(i).size)
+                if (rowbol(i) * colbol(j) == 0)
+                    tgt(i)(j) = 0
         tgt
     }
     def main(args : Array[String]) {
