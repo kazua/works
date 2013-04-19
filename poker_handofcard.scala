@@ -4,9 +4,9 @@ object poker_handofcard {
     def pack[A](ls : List[A]) : List[List[A]] = {
         if (ls.isEmpty) List(Nil)
         else {
-            val (head, tail) = ls.span(_ == ls.head)
-            if (tail == Nil) List(head)
-            else head :: pack(tail)
+            val (hdele, elsele) = ls.span(_ == ls.head)
+            if (elsele == Nil) List(hdele)
+            else hdele :: pack(elsele)
         }
     }
     def decPokerHand(cdList : List[(String, Int)]) = {
