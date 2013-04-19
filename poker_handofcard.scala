@@ -9,7 +9,7 @@ object poker_handofcard {
             else head :: pack(tail)
         }
     }
-    def decPokerHand(cdList : List[(String,Int)]) = {
+    def decPokerHand(cdList : List[(String, Int)]) = {
         val mrkCnt = cdList.map(_._1).distinct.size
         val numList = cdList.map(_._2).sorted
         mrkCnt match {
@@ -21,7 +21,8 @@ object poker_handofcard {
                 }
             case m =>
                 numList match {
-                    case n if n.sliding(2).forall(s => s.head + 1 == s.tail.head) => "ストレート"
+                    case n if n.sliding(2).forall(s => s.head + 1 == s.tail.head) ||
+                              n == List(1, 10, 11, 12, 13) => "ストレート"
                     case n =>
                         val cnt = pack(n.sorted).map(_.size).sorted.reverse
                         cnt match {
@@ -36,6 +37,6 @@ object poker_handofcard {
         }
     }
     def main(args : Array[String]) {
-        println(decPokerHand(List(("クラブ", 11), ("クラブ", 10), ("クラブ", 1), ("クラブ", 12), ("クラブ", 13))))
+        println(decPokerHand(List(("クラブ", 11), ("クラブ", 10), ("ハート", 1), ("クラブ", 12), ("クラブ", 13))))
     }
 }
