@@ -9,9 +9,9 @@ object poker_handofcard {
             else head :: pack(tail)
         }
     }
-    def decPokerHand(cdList : List[List[Any]]) = {
-        val mrkCnt = cdList.map(_.head).distinct.size
-        val numList = cdList.map(_.tail.head.toString.toInt).sorted
+    def decPokerHand(cdList : List[(String,Int)]) = {
+        val mrkCnt = cdList.map(_._1).distinct.size
+        val numList = cdList.map(_._2).sorted
         mrkCnt match {
             case m if m == 1 =>
                 numList match {
@@ -36,6 +36,6 @@ object poker_handofcard {
         }
     }
     def main(args : Array[String]) {
-        println(decPokerHand(List(List("クラブ", 5), List("ハート", 6), List("ダイヤ", 7), List("クラブ", 8), List("スペード", 9))))
+        println(decPokerHand(List(("クラブ", 11), ("クラブ", 10), ("クラブ", 1), ("クラブ", 12), ("クラブ", 13))))
     }
 }
