@@ -21,10 +21,10 @@ object createPassword {
             case a => createPasswordProc(ba ::: sa ::: nm ::: ek, rd.shuffle(Range(emin, emax)).head, "")
         }
         case c => tgt match {
-            case a if a == "google" => createPasswordProcCp(ba, sa, nm, gk, rd.shuffle(Range(8, 30)).head, "")
-            case a if a == "msn" => createPasswordProcCp(ba, sa, nm, mk, rd.shuffle(Range(6, 30)).head, "")
-            case a if a == "yahoo" => createPasswordProcCp(ba, sa, nm, yk, rd.shuffle(Range(6, 30)).head, "")
-            case a => createPasswordProcCp(ba, sa, nm, ek, rd.shuffle(Range(emin, emax)).head, "")
+            case a if a == "google" => createPasswordProcCp(rd.shuffle(ba), rd.shuffle(sa), rd.shuffle(nm), rd.shuffle(gk), rd.shuffle(Range(8, 30)).head, "")
+            case a if a == "msn" => createPasswordProcCp(rd.shuffle(ba), rd.shuffle(sa), rd.shuffle(nm), rd.shuffle(mk), rd.shuffle(Range(6, 30)).head, "")
+            case a if a == "yahoo" => createPasswordProcCp(rd.shuffle(ba), rd.shuffle(sa), rd.shuffle(nm), rd.shuffle(yk), rd.shuffle(Range(6, 30)).head, "")
+            case a => createPasswordProcCp(rd.shuffle(ba), rd.shuffle(sa), rd.shuffle(nm), rd.shuffle(ek), rd.shuffle(Range(emin, emax)).head, "")
         }
     }
     def createPasswordProc(src : List[Char], len : Int, acl : String) : String = acl match {
