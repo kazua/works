@@ -46,6 +46,6 @@ object createPassword {
         println(createPassword("msn", cpf = 1))
         println(createPassword("yahoo", cpf = 1))
         println(createPassword("jitaku", cpf = 1))
-        println(createPassword("jitaku2", 1, 4, 5))
+        println(createPassword("jitaku2", 4, 5, 1))
     }
 }
