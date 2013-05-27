@@ -5,7 +5,7 @@ import scala.util.Random
 object numQuiz {
     val rd = new Random()
     def numQuiz(cpn : Int = rd.nextInt(101), cnt : Int = 1, msg : String = "") : String = msg match {
-        case m if m.indexOf("正解") >= 0 => cnt.toString + "回目で正解しました。おめでとうございます。"
+        case m if m.indexOf("正解") >= 0 => s"${cnt}回目で正解しました。おめでとうございます。"
         case m => {
             if (cnt == 1 && msg == "") println("1から100までの数値でコンピュータが何を選んだか当ててください。")
             if (msg != "") println(msg)
