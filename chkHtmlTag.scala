@@ -8,7 +8,7 @@ object chkHtmlTag {
     def chkHtmlTag(fp : String) : String = {
         val src = Source.fromFile(fp)("UTF-8")
         val lines = src.getLines.toList.mkString
-        chkHtmlTagProc(st.findAllIn(lines).filterNot(_.contains("META")).toList, Nil, fp)
+        chkHtmlTagProc(st.findAllIn(lines).toList, Nil, fp)
     }
     def chkHtmlTagProc(tglist : List[String], oplist : List[String], fp : String) : String = tglist match {
         case t if t == Nil => "指定HTMLファイル:" + fp + "は正常な入れ子状態です。"
