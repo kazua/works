@@ -19,7 +19,7 @@ object chkHtmlTag {
                 chkHtmlTagProc(t.tail, oplist.tail, fp)
             case h if h.take(2) == "</" && h.takeRight(2) != "/>" && h.replaceAll("[</>]", "") != oplist.head.take(h.size - 2).replaceAll("[</>]", "") =>
                 "指定HTMLファイル:" + fp + "は正常な入れ子状態ではありません。" + System.getProperty("line.separator") +
-                    "閉じタグが漏れているか、タグ終わりスラッシュの付け忘れの可能性があります。異常タグは" + oplist.head + "です。"
+                    "開始タグもしくは終了タグが漏れているか、タグ終わりスラッシュの付け忘れの可能性があります。異常タグは" + oplist.head + "か" + h + "です。"
             case h if h.takeRight(2) == "/>" =>
                 chkHtmlTagProc(t.tail, oplist, fp)
         }
