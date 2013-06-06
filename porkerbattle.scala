@@ -65,7 +65,7 @@ object porkerbattle {
         case a => {
             val ns = cd(rd.nextInt(cd.size - 1)) :: a.head
             val ncd = cd diff ns
-            val na = ncd(rd.nextInt(cd.size - 1)) :: a.tail.head
+            val na = ncd(rd.nextInt(ncd.size - 1)) :: a.tail.head
             val lcd = ncd diff na
             dealCards(lcd, sn, List(ns, na))
         }
