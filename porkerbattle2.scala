@@ -78,7 +78,7 @@ object porkerbattle2 {
                     }
                 } catch {
                     case ex : java.lang.NumberFormatException => {
-                        println("数値のみ入力可能です。")
+                        println(Integer.MAX_VALUE + "以下の数値のみ入力可能です。")
                         List(a.head.sorted, a.tail.head.sorted)
                     }
                 }
@@ -111,26 +111,15 @@ object porkerbattle2 {
         val cpem = if (cp._2.tail.tail.head == 1) 14 else cp._2.tail.tail.head
         val pem = if (p._2.tail.tail.head == 1) 14 else p._2.tail.tail.head
 
-        val wc =
-            if (cpyr < pyr) {
-                1
-            } else if (cpyr > pyr) {
-                2
-            } else {
-                if (cpym > pym) {
-                    1
-                } else if (cpym < pym) {
-                    2
-                } else {
-                    if (cpem > pem) {
-                        1
-                    } else if (cpem < pem) {
-                        2
-                    } else {
-                        0
-                    }
-                }
-            }
+        val wc = if (cpyr < pyr) 1
+                 else if (cpyr > pyr) 2
+                 else
+                     if (cpym > pym) 1
+                     else if (cpym < pym) 2
+                     else
+                         if (cpem > pem) 1
+                         else if (cpem < pem) 2
+                         else 0
 
         val wm = if (wc == 0) "引き分けです" else if (wc == 1) "コンピュータの勝ちです" else "あなたの勝ちです"
         s"""|コンピュータの役：$cpy 手札$cpcd
