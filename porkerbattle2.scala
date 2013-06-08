@@ -64,9 +64,9 @@ object porkerbattle2 {
         case a if a.head.size == sn && a.tail.head.size == sn => cgc match {
             case c if c >= 3 => List(a.head.sorted, a.tail.head.sorted)
             case c => {
-                println("現在の手役：")
+                print("現在の手役：")
                 a.tail.head.sorted.foreach(print)
-                println
+                println(s"\n何枚目の手札を交換しますか？数値だけで指定してください（2枚目と3枚目を交換するときは23）")
                 try {
                     readInt match {
                         case i if i == 0 => List(a.head.sorted, a.tail.head.sorted)
