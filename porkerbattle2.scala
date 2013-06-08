@@ -66,7 +66,7 @@ object porkerbattle2 {
             case c => {
                 print("現在の手役：")
                 a.tail.head.sorted.foreach(print)
-                println(s"\n何枚目の手札を交換しますか？数値だけで指定してください（2枚目と3枚目を交換するときは23）")
+                println("\n何枚目の手札を交換しますか？数値だけで指定してください（2枚目と3枚目を交換するときは23）")
                 try {
                     readInt match {
                         case i if i == 0 => List(a.head.sorted, a.tail.head.sorted)
