@@ -114,6 +114,10 @@ object cardGame {
             try {
                 readInt match {
                     case i if i == 0 => List(a.head.sorted, a.tail.head.sorted)
+                    case i if i != 0 && i != 1 => {
+                        println("1（ヒット）か0（スタンド）のどちらかを入力してください。")
+                        dealBlackjackCards(cd, a)
+                    }
                     case i => {
                         val na = cd(rd.nextInt(cd.size - 1)) :: a.tail.head
                         val lcd = cd diff na
@@ -122,7 +126,7 @@ object cardGame {
                 }
             } catch {
                 case ex : java.lang.NumberFormatException => {
-                    println(Integer.MAX_VALUE + "以下の数値のみ入力可能です。")
+                    println("入力不可能文字です。")
                     List(a.head.sorted, a.tail.head.sorted)
                 }
             }
