@@ -114,14 +114,14 @@ object cardGame {
             try {
                 readInt match {
                     case i if i == 0 => List(a.head.sorted, a.tail.head.sorted)
-                    case i if i != 0 && i != 1 => {
-                        println("1（ヒット）か0（スタンド）のどちらかを入力してください。")
-                        dealBlackjackCards(cd, a)
-                    }
-                    case i => {
+                    case i if i == 1 => {
                         val na = cd(rd.nextInt(cd.size - 1)) :: a.tail.head
                         val lcd = cd diff na
                         dealBlackjackCards(lcd, List(a.head.sorted, na))
+                    }
+                    case i => {
+                        println("1（ヒット）か0（スタンド）のどちらかを入力してください。")
+                        dealBlackjackCards(cd, a)
                     }
                 }
             } catch {
