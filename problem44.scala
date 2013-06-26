@@ -4,7 +4,7 @@
 import scala.math._
 
 object problem44 {
-    def isPenNum(d : Double) = (Math.sqrt(1.0 + 24.0 * d) + 1.0) / 6.0 == ((Math.sqrt(1.0 + 24.0 * d) + 1.0) / 6.0).toInt
+    def isPenNum(d : Double) = (sqrt(1.0 + 24.0 * d) + 1.0) / 6.0 == ((sqrt(1.0 + 24.0 * d) + 1.0) / 6.0).toInt
     def problem44(fn : Int, sn : Int, an : Int) : Int = an match {
         case a if a > 0 => a
         case _ => {
