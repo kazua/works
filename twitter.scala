@@ -6,7 +6,7 @@ import scala.collection.JavaConverters._
 
 object twitter {
     def twitterinfo(sw : String) = {
-
+        //認証
         val cb = new ConfigurationBuilder
         cb.setOAuthConsumerKey("*************************")//キーは自分で取得してください
             .setOAuthConsumerSecret("********************************************")//キーは自分で取得してください
@@ -63,10 +63,7 @@ object twitter {
             }
             mts.size match {
                 case i if i == 0 || sts.length + i > ln => sts
-                case _ => {
-                    pg.setMaxId(mts.get(mts.size - 1).getId - 1)
-                    getTweet(tt, pg.getMaxId, sts ::: mts.asScala.toList, pf, sw, ln)
-                }
+                case _ => getTweet(tt, mts.get(mts.size - 1).getId - 1, sts ::: mts.asScala.toList, pf, sw, ln)
             }
         } catch {
             case e : TwitterException => {
