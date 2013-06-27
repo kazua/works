@@ -23,7 +23,7 @@ object twitter {
                 + st.getUser.getName + ":"
                 + st.getText.replace("\n", "")
                 + " tweet at " + st.getCreatedAt.formatted("%tY/%<tm/%<td %<tH:%<tM:%<tS")
-                + " URL:https://twitter.com/724685/status/" + st.getId)
+                + " URL:https://twitter.com/" + st.getUser.getScreenName + "/status/" + st.getId)
 
         //自分のタイムラインに表示されている内容を表示
         val sts = getTweet(tt, 0, Nil, 2)
@@ -34,7 +34,7 @@ object twitter {
                 + st.getUser.getName + ":"
                 + st.getText.replace("\n", "")
                 + " tweet at " + st.getCreatedAt.formatted("%tY/%<tm/%<td %<tH:%<tM:%<tS")
-                + " URL:https://twitter.com/724685/status/" + st.getId)
+                + " URL:https://twitter.com/" + st.getUser.getScreenName + "/status/" + st.getId)
 
         //検索文字を指定して検索した結果を表示
         val twt = getTweet(tt, 0, Nil, 3, sw)
@@ -45,7 +45,7 @@ object twitter {
                 + st.getUser.getName + ":"
                 + st.getText.replace("\n", "")
                 + " tweet at " + st.getCreatedAt.formatted("%tY/%<tm/%<td %<tH:%<tM:%<tS")
-                + " URL:https://twitter.com/724685/status/" + st.getId)
+                + " URL:https://twitter.com/" + st.getUser.getScreenName + "/status/" + st.getId)
     }
 
     val pg = new Paging(1, 100)
