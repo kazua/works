@@ -48,9 +48,9 @@ object twitter {
                 + " URL:https://twitter.com/" + st.getUser.getScreenName + "/status/" + st.getId)
     }
 
-    val pg = new Paging(1, 100)
-    val query = new Query
     def getTweet(tt : twitter4j.Twitter, ni : Long, sts : List[twitter4j.Status], pf : Int, sw : String = "", ln : Int = 100) : List[twitter4j.Status] = {
+        val pg = new Paging(1, 100)
+        val query = new Query
         if (ni != 0) pg.setMaxId(ni)
         try {
             val mts = if (pf == 1) tt.getUserTimeline(pg)
