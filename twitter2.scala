@@ -42,7 +42,7 @@ object twitter2 {
         println("指定検索文字:" + sw)
 
         //指定検索文字を含む自ツイートを一覧表示
-        val mts = getTweet(tt, 0, Nil, 1).filter(s => s.getText.indexOf(sw) >= 0)
+        val mts = if (sw.trim != "") getTweet(tt, 0, Nil, 1).filter(s => s.getText.indexOf(sw) >= 0) else getTweet(tt, 0, Nil, 1)
         println("mytweet表示件数:" + mts.length + "件")
         for (st <- mts)
             println("@" + st.getUser.getScreenName + "/"
@@ -52,7 +52,7 @@ object twitter2 {
                 + " URL:https://twitter.com/" + st.getUser.getScreenName + "/status/" + st.getId)
 
         //指定検索文字を含む自タイムラインを一覧表示
-        val sts = getTweet(tt, 0, Nil, 2).filter(s => s.getText.indexOf(sw) >= 0)
+        val sts = if (sw.trim != "") getTweet(tt, 0, Nil, 2).filter(s => s.getText.indexOf(sw) >= 0) else getTweet(tt, 0, Nil, 2)
         println
         println("mytimeline表示件数:" + sts.length + "件")
         for (st <- sts)
