@@ -28,7 +28,6 @@ object twitter2 {
             val dt = Desktop.getDesktop
             dt.browse(URI.create(url))
             val pin = JOptionPane.showInputDialog("画面上で表示されたPIN番号を入力して下さい").trim
-            println(pin)
             if (pin == "") println("PIN番号が未入力です")
             else {
                 val at = tt.getOAuthAccessToken(rt, pin)
