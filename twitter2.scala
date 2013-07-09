@@ -14,7 +14,6 @@ object twitter2 {
         val ck = "*************************"//キーは自分で取得してください
         val cs = "*************************"//キーは自分で取得してください
         val tt = TwitterFactory.getSingleton
-        val nc = NetworkInterface.getNetworkInterfaces
         val sat = try {
             val is = new ObjectInputStream(new FileInputStream(sn + ".dat"))
             is.readObject.asInstanceOf[twitter4j.auth.AccessToken]
