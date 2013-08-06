@@ -12,8 +12,6 @@
 
 //Kazua
 
-import scala.math._
-
 object problem57 {
     def problem57(n : Int = 1, m : BigInt = 2, c : BigInt = 3, a : Int = 0) : Int = a match {
         case a if n == 1000 => a
