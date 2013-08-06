@@ -16,10 +16,10 @@ object problem57 {
     def problem57(n : Int = 1, m : BigInt = 2, c : BigInt = 3, a : Int = 0) : Int = a match {
         case a if n == 1000 => a
         case _ =>
-            if ((c + 2 * m).toString.size > (c + 2 * m - m).toString.size)
-                problem57(n + 1, c + 2 * m - m, c + 2 * m, a + 1)
+            if ((c + 2 * m).toString.size > (c + m).toString.size)
+                problem57(n + 1, c + m, c + 2 * m, a + 1)
             else
-                problem57(n + 1, c + 2 * m - m, c + 2 * m, a)
+                problem57(n + 1, c + m, c + 2 * m, a)
     }
     def main(args : Array[String]) {
         println(problem57())
