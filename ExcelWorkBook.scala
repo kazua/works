@@ -147,7 +147,7 @@ class ExcelWorkBook {
     def getSheetNameMap : scala.collection.mutable.Map[String, Int] = {
         val msn = getNumberOfSheets
         val smp = scala.collection.mutable.Map[String, Int]()
-        for (i <- 1 until msn) smp += getSheetName(i) -> i
+        for (i <- 0 until msn) smp += getSheetName(i) -> i
         smp
     }
 
